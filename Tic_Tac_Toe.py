@@ -204,19 +204,19 @@ def game_logic():
             pts = 0
             pts2 = 0
             while pts and pts2 not in [1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts,pts2):
-                play1 = int(input('PLAYER 1: What you choice?'))
+                play1 = int(input('PLAYER 1: What you choice? '))
                 if pts > 0 and pts2 > 0 and pts==pts2:
                     print('Choice another position')
-                    play2 = int(input('PLAYER 1: What you choice?'))
+                    play2 = int(input('PLAYER 1: What you choice? '))
                 pts = play1
                 (board(test_board))
                 inputs_player1()
                 board_verify(test_board)
-                play2 = int(input('PLAYER 2: What you choice?'))
+                play2 = int(input('PLAYER 2: What you choice? '))
                 pts2 = play2
                 if pts > 0 and pts2 > 0 and pts == pts2:
                     print('Choice another position')
-                    play2 = int(input('PLAYER 2: What you choice?'))
+                    play2 = int(input('PLAYER 2: What you choice? '))
                 (board(test_board))
                 inputs_player2()
 
@@ -228,19 +228,19 @@ def game_logic():
             pts3 = 0
             pts4 = 0
             while pts4 and pts4 not in[1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts3,pts4):
-                play2 = int(input('PLAYER 2: What you choice?'))
+                play2 = int(input('PLAYER 2: What you choice? '))
                 if pts3 > 0 and pts4 > 0 and pts3 == pts4:
                     print('Choice another position')
-                    play2 = int(input('PLAYER 2: What you choice?'))
+                    play2 = int(input('PLAYER 2: What you choice? '))
                 pts3 = play2
                 (board(test_board))
                 inputs_player2()
                 board_verify(test_board)
-                play1 = int(input('PLAYER 1: What you choice?'))
+                play1 = int(input('PLAYER 1: What you choice? '))
                 pts4 = play1
                 if pts3 > 0 and pts4 > 0 and pts3 == pts4:
                     print('Choice another position')
-                    play2 = int(input('PLAYER 1: What you choice?'))
+                    play2 = int(input('PLAYER 1: What you choice? '))
                 (board(test_board))
                 inputs_player1()
                 board_verify(test_board)
