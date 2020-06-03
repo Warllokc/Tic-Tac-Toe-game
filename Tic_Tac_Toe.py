@@ -94,21 +94,21 @@ def board(game_table):
     O_game = winning(test_board,'O')
 
     if X_game == True and 'X' == player1:
-        print(f'Congratulation {winner1 }, You WON THE GAME!!!') # THE WINNER IS NOT FINISHED
+        print(f'Congratulation {winner1 }, You WON THE GAME!!!') 
         time.sleep(3)
         replay()
     elif X_game == True and 'X' == player2:
-        print(f'Congratulation {winner2 }, You WON THE GAME!!!') # THE WINNER IS NOT FINISHED
+        print(f'Congratulation {winner2 }, You WON THE GAME!!!') 
         time.sleep(3)
         replay()
 
     if O_game == True and 'O' == player1:
-        print(f'Congratulation {winner1 }, You WON THE GAME!!!') # THE WINNER IS NOT FINISHED
+        print(f'Congratulation {winner1 }, You WON THE GAME!!!') 
         time.sleep(3)
         replay()
 
     elif O_game == True and 'O' == player2:
-        print(f'Congratulation {winner2}, You WON THE GAME!!!')  # THE WINNER IS NOT FINISHED
+        print(f'Congratulation {winner2}, You WON THE GAME!!!')
         time.sleep(3)
         replay()
 
