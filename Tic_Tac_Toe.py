@@ -208,12 +208,10 @@ def game_logic():
                     try:
                         play1 = int(input('PLAYER 1: What you choice?'))
 
-                    except ValueError:
+                    except :
                         print('Please provide integer from 1-9')
                         continue
-                    except NameError:
-                        print('Please provide integer from 1-9')
-                        continue
+
                     if pts > 0 and pts2 > 0 and pts==pts2:
                             print('Choice another position')
                             play2 = int(input('PLAYER 1: What you choice?'))
@@ -222,16 +220,15 @@ def game_logic():
                     inputs_player1()
                     board_verify(test_board)
                     break
+
                 while True:
                     try:
                         play2 = int(input('PLAYER 2: What you choice?'))
 
-                    except ValueError:
+                    except :
                         print('Please provide integer from 1-9')
                         continue
-                    except NameError:
-                        print('Please provide integer from 1-9')
-                        continue
+
                     if pts > 0 and pts2 > 0 and pts == pts2:
                         print('Choice another position')
                         play2 = int(input('PLAYER 2: What you choice?'))
@@ -246,16 +243,14 @@ def game_logic():
             # 1 game
             pts3 = 0
             pts4 = 0
-            while pts4 and pts4 not in[1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts3,pts4):
+            while pts3 and pts4 not in[1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts3,pts4):
                 while True:
                     try:
                         play2 = int(input('PLAYER 2: What you choice?'))
-                    except ValueError:
+                    except :
                         print('Please provide integer from 1-9')
                         continue
-                    except NameError:
-                        print('Please provide integer from 1-9')
-                        continue
+
                     if pts3 > 0 and pts4 > 0 and pts3 == pts4:
                         print('Choice another position')
                         play2 = int(input('PLAYER 2: What you choice?'))
@@ -264,15 +259,14 @@ def game_logic():
                     inputs_player2()
                     board_verify(test_board)
                     break
+
                 while True:
                     try:
                         play1 = int(input('PLAYER 1: What you choice?'))
-                    except ValueError:
+                    except :
                         print('Please provide integer from 1-9')
                         continue
-                    except NameError:
-                        print('Please provide integer from 1-9')
-                        continue
+
                     pts4 = play1
                     if pts3 > 0 and pts4 > 0 and pts3 == pts4:
                         print('Choice another position')
