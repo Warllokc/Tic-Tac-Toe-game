@@ -94,16 +94,16 @@ def board(game_table):
     O_game = winning(test_board,'O')
 
     if X_game == True and 'X' == player1:
-        print(f'Congratulation {winner1 }, You WON THE GAME!!!') 
+        print(f'Congratulation {winner1 }, You WON THE GAME!!!')
         time.sleep(3)
         replay()
     elif X_game == True and 'X' == player2:
-        print(f'Congratulation {winner2 }, You WON THE GAME!!!') 
+        print(f'Congratulation {winner2 }, You WON THE GAME!!!')
         time.sleep(3)
         replay()
 
     if O_game == True and 'O' == player1:
-        print(f'Congratulation {winner1 }, You WON THE GAME!!!') 
+        print(f'Congratulation {winner1 }, You WON THE GAME!!!')
         time.sleep(3)
         replay()
 
@@ -204,23 +204,42 @@ def game_logic():
             pts = 0
             pts2 = 0
             while pts and pts2 not in [1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts,pts2):
-                play1 = int(input('PLAYER 1: What you choice? '))
-                if pts > 0 and pts2 > 0 and pts==pts2:
-                    print('Choice another position')
-                    play2 = int(input('PLAYER 1: What you choice? '))
-                pts = play1
-                (board(test_board))
-                inputs_player1()
-                board_verify(test_board)
-                play2 = int(input('PLAYER 2: What you choice? '))
-                pts2 = play2
-                if pts > 0 and pts2 > 0 and pts == pts2:
-                    print('Choice another position')
-                    play2 = int(input('PLAYER 2: What you choice? '))
-                (board(test_board))
-                inputs_player2()
+                while True:
+                    try:
+                        play1 = int(input('PLAYER 1: What you choice?'))
 
-                board_verify(test_board)
+                    except ValueError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    except NameError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    if pts > 0 and pts2 > 0 and pts==pts2:
+                            print('Choice another position')
+                            play2 = int(input('PLAYER 1: What you choice?'))
+                    pts = play1
+                    (board(test_board))
+                    inputs_player1()
+                    board_verify(test_board)
+                    break
+                while True:
+                    try:
+                        play2 = int(input('PLAYER 2: What you choice?'))
+
+                    except ValueError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    except NameError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    if pts > 0 and pts2 > 0 and pts == pts2:
+                        print('Choice another position')
+                        play2 = int(input('PLAYER 2: What you choice?'))
+                    pts2 = play2
+                    (board(test_board))
+                    inputs_player2()
+                    board_verify(test_board)
+                    break
 
         # in case if player2 have 1 choice
         if player2 == 'X':
@@ -228,22 +247,40 @@ def game_logic():
             pts3 = 0
             pts4 = 0
             while pts4 and pts4 not in[1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts3,pts4):
-                play2 = int(input('PLAYER 2: What you choice? '))
-                if pts3 > 0 and pts4 > 0 and pts3 == pts4:
-                    print('Choice another position')
-                    play2 = int(input('PLAYER 2: What you choice? '))
-                pts3 = play2
-                (board(test_board))
-                inputs_player2()
-                board_verify(test_board)
-                play1 = int(input('PLAYER 1: What you choice? '))
-                pts4 = play1
-                if pts3 > 0 and pts4 > 0 and pts3 == pts4:
-                    print('Choice another position')
-                    play2 = int(input('PLAYER 1: What you choice? '))
-                (board(test_board))
-                inputs_player1()
-                board_verify(test_board)
+                while True:
+                    try:
+                        play2 = int(input('PLAYER 2: What you choice?'))
+                    except ValueError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    except NameError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    if pts3 > 0 and pts4 > 0 and pts3 == pts4:
+                        print('Choice another position')
+                        play2 = int(input('PLAYER 2: What you choice?'))
+                    pts3 = play2
+                    (board(test_board))
+                    inputs_player2()
+                    board_verify(test_board)
+                    break
+                while True:
+                    try:
+                        play1 = int(input('PLAYER 1: What you choice?'))
+                    except ValueError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    except NameError:
+                        print('Please provide integer from 1-9')
+                        continue
+                    pts4 = play1
+                    if pts3 > 0 and pts4 > 0 and pts3 == pts4:
+                        print('Choice another position')
+                        play2 = int(input('PLAYER 1: What you choice?'))
+                    (board(test_board))
+                    inputs_player1()
+                    board_verify(test_board)
+                    break
 
 
 # VERIFY WINNING PATTERN IF IS ACHIEVED
