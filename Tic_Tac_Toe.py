@@ -237,6 +237,7 @@ def game_logic():
                     inputs_player2()
                     board_verify(test_board)
                     break
+            break
 
         # in case if player2 have 1 choice
         if player2 == 'X':
@@ -275,6 +276,7 @@ def game_logic():
                     inputs_player1()
                     board_verify(test_board)
                     break
+            break
 
 
 # VERIFY WINNING PATTERN IF IS ACHIEVED
