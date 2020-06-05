@@ -57,13 +57,13 @@ def who_is():
             break
 
         elif player1.startswith('r') and player2.startswith ('r'):
-            print('EQUALITY!!! It`s not define who will have first choice')
+            print('TIE !!! It`s not define who will have first choice')
 
         elif player1.startswith('s') and player2.startswith ('s'):
-            print('EQUALITY!!! It`s not define who will have first choice')
+            print('TIE !!! It`s not define who will have first choice')
 
         elif player1.startswith('p') and player2.startswith ('p'):
-            print('EQUALITY!!! It`s not define who will have first choice')
+            print('TIE !!! It`s not define who will have first choice')
 
     time.sleep(3)
 
@@ -189,7 +189,7 @@ def board_verify(board):
         elif i =='O':
             y+=1
         if (x==5 and y==4) or (x==4 and y==5):
-            print('Game is EQUAL!!!')
+            print('Game is TIE!!!')
             replay()
 
 
