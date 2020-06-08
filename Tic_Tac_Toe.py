@@ -232,7 +232,7 @@ def game_logic():
                     if pts > 0 and pts_2 > 0 and pts == pts_2:
                         print('Choice another position')
                         play2 = int(input('PLAYER 2: What you choice?'))
-                    pts2 = play2
+                    pts_2 = play2
                     (board(test_board))
                     inputs_player2()
                     board_verify(test_board)
