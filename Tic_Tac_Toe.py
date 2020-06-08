@@ -7,7 +7,7 @@ import time
 # INITIAL DEFINITION OF THE ELEMENTS
 player1 = ''
 player2 = ''
-test_board = ['#','-','-','-',    '-','-','-',    '-','-','-']
+test_board = ['#', '-', '-', '-',    '-', '-', '-',    '-', '-', '-']
 
 
 #CREATING LOGIC OF (ROCK, PAPPER, SCISSORS) TO FIND WHO IS GONNA HAVE FIRST CHOICE
@@ -90,8 +90,8 @@ def board(game_table):
     print(game_table[7], '|', game_table[8], '|', game_table[9])
     print('_________')
 
-    X_game = winning(test_board,'X')
-    O_game = winning(test_board,'O')
+    X_game = winning(test_board, 'X')
+    O_game = winning(test_board, 'O')
 
     if X_game == True and 'X' == player1:
         print(f'Congratulation {winner1 }, You WON THE GAME!!!')
@@ -174,8 +174,8 @@ def inputs_player2():
         (board(test_board))
 
 # VERIFY IF THE POSITION ON THE BOARD IS FREE
-def free_board(board,position,pos):
-    if (board[position]=='-') and (board[pos]=='-'):
+def free_board(board, position, pos):
+    if (board[position] == '-') and (board[pos] == '-'):
         return True
 
 
@@ -184,26 +184,26 @@ def board_verify(board):
     x=0
     y= 0
     for i in board:
-        if i =='X':
-            x+=1
-        elif i =='O':
-            y+=1
-        if (x==5 and y==4) or (x==4 and y==5):
+        if i == 'X':
+            x += 1
+        elif i == 'O':
+            y += 1
+        if (x == 5 and y == 4) or (x == 4 and y == 5):
             print('Game is TIE!!!')
             replay()
 
 
 # CREATING LOGIC OF THE GAME
 def game_logic():
-    global play1,play2
+    global play1, play2
     sign = True
     while sign:
         # in case if player1 have 1 choice
         if player1 == 'X':
             # 1 game
             pts = 0
-            pts2 = 0
-            while pts and pts2 not in [1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts,pts2):
+            pts_2 = 0
+            while pts and pts_2 not in [1,2,3,4,5,6,7,8,9] or not free_board(test_board, pts, pts_2):
                 while True:
                     try:
                         play1 = int(input('PLAYER 1: What you choice?'))
@@ -212,7 +212,7 @@ def game_logic():
                         print('Please provide integer from 1-9')
                         continue
 
-                    if pts > 0 and pts2 > 0 and pts==pts2:
+                    if pts > 0 and pts_2 > 0 and pts == pts_2:
                             print('Choice another position')
                             play2 = int(input('PLAYER 1: What you choice?'))
                     pts = play1
@@ -229,7 +229,7 @@ def game_logic():
                         print('Please provide integer from 1-9')
                         continue
 
-                    if pts > 0 and pts2 > 0 and pts == pts2:
+                    if pts > 0 and pts_2 > 0 and pts == pts_2:
                         print('Choice another position')
                         play2 = int(input('PLAYER 2: What you choice?'))
                     pts2 = play2
@@ -237,14 +237,13 @@ def game_logic():
                     inputs_player2()
                     board_verify(test_board)
                     break
-            break
 
         # in case if player2 have 1 choice
         if player2 == 'X':
             # 1 game
             pts3 = 0
-            pts4 = 0
-            while pts3 and pts4 not in[1,2,3,4,5,6,7,8,9] or not free_board(test_board,pts3,pts4):
+            pts_4 = 0
+            while pts3 and pts_4 not in[1, 2, 3, 4, 5, 6, 7, 8, 9] or not free_board(test_board, pts3, pts_4):
                 while True:
                     try:
                         play2 = int(input('PLAYER 2: What you choice?'))
@@ -252,7 +251,7 @@ def game_logic():
                         print('Please provide integer from 1-9')
                         continue
 
-                    if pts3 > 0 and pts4 > 0 and pts3 == pts4:
+                    if pts3 > 0 and pts_4 > 0 and pts3 == pts_4:
                         print('Choice another position')
                         play2 = int(input('PLAYER 2: What you choice?'))
                     pts3 = play2
@@ -264,31 +263,30 @@ def game_logic():
                 while True:
                     try:
                         play1 = int(input('PLAYER 1: What you choice?'))
-                    except :
+                    except:
                         print('Please provide integer from 1-9')
                         continue
 
-                    pts4 = play1
-                    if pts3 > 0 and pts4 > 0 and pts3 == pts4:
+                    pts_4 = play1
+                    if pts3 > 0 and pts_4 > 0 and pts3 == pts_4:
                         print('Choice another position')
                         play2 = int(input('PLAYER 1: What you choice?'))
                     (board(test_board))
                     inputs_player1()
                     board_verify(test_board)
                     break
-            break
 
 
 # VERIFY WINNING PATTERN IF IS ACHIEVED
-def winning(test,enter):
-    return ((test[1]== enter and test[2]==enter and test[3] == enter) or # across the top
-            (test[4]== enter and test[5]==enter and test[6] == enter) or # across the middle
+def winning(test, enter):
+    return ((test[1] == enter and test[2] == enter and test[3] == enter) or # across the top
+            (test[4] == enter and test[5] == enter and test[6] == enter) or # across the middle
             (test[7] == enter and test[8] == enter and test[9] == enter) or # across bottom
-            (test[1]== enter and test[5]==enter and test[9] == enter)or # diagonal
-            (test[1]== enter and test[4]==enter and test[7] == enter) or # across left column
-            (test[2]== enter and test[5]==enter and test[8] == enter) or # across middle column
-            (test[3]== enter and test[6]==enter and test[9] == enter) or# across right column
-            (test[3]== enter and test[5]==enter and test[7] == enter)) # # diagonal
+            (test[1] == enter and test[5] == enter and test[9] == enter) or # diagonal
+            (test[1] == enter and test[4] == enter and test[7] == enter) or # across left column
+            (test[2] == enter and test[5] == enter and test[8] == enter) or # across middle column
+            (test[3] == enter and test[6] == enter and test[9] == enter) or # across right column
+            (test[3] == enter and test[5] == enter and test[7] == enter)) # diagonal
 
 # GAME REPLAY FUNCTION
 def replay():
@@ -311,4 +309,3 @@ def replay():
 (intro())
 (board(test_board))
 (game_logic())
-
